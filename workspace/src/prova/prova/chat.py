@@ -18,16 +18,10 @@ acoes = {
 }
 def main():
     
-    while (input("Tem outro problema (yes|no): ") == "no"):
-        command = input("Qual o sue problema")         
+    while (input("Tem outro problema (yes|no): ") != "no"):
+        command = input("Você tem algum problema a relatar?")         
         for key, value in intecoes.items():
             pattern = re.compile(key)
-            print(pattern)
             groups = pattern.findall(command)
-            print('key:', key)
-            print('value:', value)
-            # print('groups: ',groups)
-            # print('value: ',value)
             if groups:
                 print(f"{acoes[value](groups[0])}", end=" ")
-        print()
